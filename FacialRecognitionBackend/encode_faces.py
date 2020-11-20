@@ -25,23 +25,12 @@ def do_encode(dataset, encodings, detection_mode="cnn", in_memory=False):
     known_names = []
 
     for (i, imagePath) in enumerate(imagepaths):
-        print("[INFO] Processing image {}/{}".format(i + 1, len(imagepaths)))
         name = imagePath.split(os.path.sep)[-2]
         calculated_encodings = calculate_encodings_for_image(imagePath, detection_mode, in_memory)
         for encoding in calculated_encodings:
             known_encodings.append(encoding)
             known_names.append(name)
-        print("[INFO] Serializing objects")
         data = {"encodings": known_encodings, "names": known_names}
         f = open(encodings, 'wb')
         f.write(pickle.dumps(data))
         f.close()
-
-
-# if __name__ == '__main__':
-#     ap = argparse.ArgumentParser()
-#     ap.add_argument("-i", "--dataset", required=True)
-#     ap.add_argument("-e", "--encodings", required=True)
-#     ap.add_argument("-d", "--detection-mode", type=str, default="cnn")
-#     args = vars(ap.parse_args())
-#     do_encode(args["dataset"], args["encodings"], False)
