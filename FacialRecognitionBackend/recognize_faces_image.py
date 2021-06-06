@@ -1,7 +1,4 @@
 import face_recognition
-import argparse
-import pickle
-import cv2
 
 from FacialRecognitionBackend.encode_faces import calculate_encodings_for_image
 from FacialRecognitionBackend.models import FaceEncoding
@@ -30,4 +27,3 @@ def recognize_face(image_path, detection_mode, data=None):
             name = max(counts, key=counts.get)
         names.append(name)
     return names
-

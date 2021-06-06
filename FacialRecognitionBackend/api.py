@@ -28,10 +28,11 @@ def register_person_from_image_array(request):
 @csrf_exempt
 def recognize_person_from_image(request):
     body = json.loads(request.body)
+    print(body)
     image = body["image"]
+    image = image[2:]
+    image = image[:-1]
+    print(image)
     names = recognize_face(convert_base64_to_cv2_image(image), "hog")
     print(names)
     return HttpResponse(names)
-
-
-

@@ -1,13 +1,11 @@
 from imutils import paths
 import face_recognition
-import argparse
 import pickle
 import cv2
 import os
 
 
 def calculate_encodings_for_image(image_path, detection_mode, in_memory=True):
-    print()
     if in_memory:
         image = image_path
     else:
