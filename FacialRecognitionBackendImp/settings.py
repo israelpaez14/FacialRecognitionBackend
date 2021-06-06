@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FacialRecognitionBackend.apps.FacialrecognitionbackendConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

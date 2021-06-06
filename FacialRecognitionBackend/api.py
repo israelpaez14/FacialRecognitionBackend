@@ -4,10 +4,13 @@ import os
 import cv2
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.viewsets import ModelViewSet
 
 from FacialRecognitionBackend.add_face_to_database import register_face
 from FacialRecognitionBackend.helper_functions import convert_base64_to_cv2_image
+from FacialRecognitionBackend.models import Person
 from FacialRecognitionBackend.recognize_faces_image import recognize_face
+from FacialRecognitionBackend.serializers import PersonSerializer
 
 
 @csrf_exempt
@@ -36,3 +39,8 @@ def recognize_person_from_image(request):
     names = recognize_face(convert_base64_to_cv2_image(image), "hog")
     print(names)
     return HttpResponse(names)
+
+
+class PersonViewSet(ModelViewSet):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
