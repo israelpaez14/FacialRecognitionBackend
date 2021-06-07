@@ -8,4 +8,4 @@ Facial recognition implementation for Django backend, this repo will help you as
 
 URL | Method | Parameters
 ----|------- | -------------
-  /register_person(Method: POST, Attributes: images(It's a JSON array with the images in base64 without the prefix), name(The name of the person to register)
+  /register_person|POST|images(It's a JSON array with the images in base64 without the prefix), name(The name of the person to register)
