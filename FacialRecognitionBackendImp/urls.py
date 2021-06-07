@@ -3,7 +3,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from FacialRecognitionBackend.api import register_person_from_image_array, recognize_person_from_image, PersonViewSet
-from FacialRecognitionBackend.views import login_endpoint, main, logout_endpoint
+from FacialRecognitionBackend.views import login_endpoint, logout_endpoint
 
 router = DefaultRouter()
 router.register("people", PersonViewSet)
