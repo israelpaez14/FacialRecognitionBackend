@@ -13,7 +13,6 @@ urlpatterns = [
     path('recognize_person/', recognize_person_from_image),
     path('login/', login_endpoint),
     path('logout/', logout_endpoint),
-    path('main/', main),
     path("api/", include(router.urls))
 
 ]
