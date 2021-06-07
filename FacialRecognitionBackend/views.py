@@ -30,6 +30,8 @@ def logout_endpoint(request):
 
     logout(request)
 
+    return HttpResponse("Logged out")
+
 
 @login_required
 def main(requst):

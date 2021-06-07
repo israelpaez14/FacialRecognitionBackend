@@ -2,7 +2,7 @@ import json
 import os
 
 import cv2
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.viewsets import ModelViewSet
 
@@ -33,12 +33,11 @@ def recognize_person_from_image(request):
     body = json.loads(request.body)
     print(body)
     image = body["image"]
-    image = image[2:]
-    image = image[:-1]
+    image = str(image).replace("data:image/jpeg;base64,", "")
     print(image)
     names = recognize_face(convert_base64_to_cv2_image(image), "hog")
     print(names)
-    return HttpResponse(names)
+    return JsonResponse({"name": names[0] if len(names) > 0 else "Unknown"}, safe=True, status=200)
 
 
 class PersonViewSet(ModelViewSet):

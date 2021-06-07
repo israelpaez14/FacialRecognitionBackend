@@ -9,7 +9,7 @@ from FacialRecognitionBackend.models import Person
 
 
 class PersonSerializer(ModelSerializer):
-    b64 = serializers.CharField(source="base64", read_only=True)
+    photo = serializers.CharField(source="base64", read_only=True)
 
     class Meta:
         model = Person
