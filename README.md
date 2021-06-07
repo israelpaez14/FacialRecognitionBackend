@@ -5,4 +5,7 @@ Facial recognition implementation for Django backend, this repo will help you as
   check how to install it on windows
 
 ## About the API
+
+URL | Method | Parameters
+----|------- | -------------
   /register_person(Method: POST, Attributes: images(It's a JSON array with the images in base64 without the prefix), name(The name of the person to register)
