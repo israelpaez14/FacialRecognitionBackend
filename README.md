@@ -11,3 +11,6 @@ URL | Method | Parameters | Returns
   /register_person|POST|**images**(It's a JSON array with the images in base64 without the prefix), **name**(The name of the person to register) | A json if its ok
   /recognize_person|POST|**image**(Base64 Enconded image to recognize)| A JSON with the name of the person {"name":"Israel"}
   /login|POST|**username**(Django username), **password**(Django password)| A JSON with the login status {"result":"Success"}
+  /logout|GET|**NO PARAMETERS**| A JSON with the logout status {"result":"Success"}
+  /api/people/|GET|**NO PARAMETERS**| A JSON Array with the registered people
+
