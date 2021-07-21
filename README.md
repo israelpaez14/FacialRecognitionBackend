@@ -3,6 +3,11 @@ Facial recognition implementation for Django backend, this repo will help you as
 ## About the dependencies 
   The most of the dependencies should be installed easily, the only one that you could have problems is dlib,
   check how to install it on windows
+## How to run the app 
+  You can use docker to run the application without messing with dblib in windows, all the docker image configurations is done, all you need to do is :<br>
+  docker image build -t bakend .<br>
+  docker-compose up -d
+ 
 
 ## About the API
 
